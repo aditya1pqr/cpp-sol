@@ -1,0 +1,331 @@
+1.
+
+
+#include<iostream>
+using namespace std;
+ void check_prime(int a)
+{   int k=a;
+   int  flag =0;
+    for(int i=2;i<k/2;i++)
+    {
+        if(a%i==0)
+        {
+            flag=1;
+        }
+    }
+    if(flag==1)
+    {
+        cout<<"Number is not prime"<<endl;
+    }
+    else
+    {
+        cout<<"Number is Prime"<<endl;
+    }
+
+}
+int main()
+{
+    int a;
+    cout<<"Enter the number ";
+    cin>>a;
+    check_prime(a);
+
+    return 0;
+}
+
+
+
+2.
+
+#include<iostream>
+int largedigit(int);
+using namespace std;
+int main()
+{
+    int a;
+    cout<<"enter the number";
+  cin>>a;
+  cout<<"largest digit in number is "<<largedigit(a);
+  return 0;
+}
+int largedigit(int num)
+{  int larg=0,rem=0;
+    while(num>0)
+    {
+        rem=num%10;
+        if(rem>larg)
+            {
+            larg=rem;
+            }
+         num=num/10;
+    }
+
+    return larg;
+}
+
+
+3.
+
+#include<iostream>
+int pow(int,int);
+using namespace std;
+int main()
+{
+    int x,y;
+    cout<<"enter the value x raised to the power y";
+  cin>>x>>y;
+  cout<<"value "<<x<<" raised to the power "<<y<<" is "<<pow(x,y);;
+  return 0;
+}
+int pow(int a,int b)
+{  int i,pow=1;
+    for(i=0;i<b;i++)
+    {
+        pow=pow*a;
+    }
+    return pow;
+}
+
+
+4.
+#include <iostream>
+
+
+using namespace std;
+void pascal(int);
+int fact(int);
+
+int main()
+{
+    int n;
+    cout<<"Enter number of lines\n";
+    cin>>n;
+    pascal(n-1);
+    return 0;
+}
+int fact(int n)
+{ int ans=1;
+    for(int i=1;i<=n;i++)
+    {
+        ans=ans*i;
+    }
+    return ans;
+}
+void pascal(int n)
+{   
+    for(int i=0;i<=n;i++)
+    {
+        for(int j=0;j<=i;j++)
+        {
+          cout<<fact(i)/(fact(i-j)*fact(j))<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+
+5.
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+bool isperfect(int x)
+{
+    int s=sqrt(x);
+    return ((s*s==x));
+}
+ bool isfab_num(int n)
+{
+    return(isperfect(5*n*n+4)||isperfect(5*n*n-4));
+}
+int main()
+{
+    int x;
+    cout<<"Enter the number you want to check   ";
+    cin>>x ;
+    if(isfab_num(x))
+    {
+        cout<<"number is term of Fibonacci series";
+    }
+    else
+    {
+         cout<<"number is term of Fibonacci series";
+    }
+    return 0;
+}
+
+
+6.
+
+#include<iostream>
+void f(int&,int&);
+using namespace std;
+int main()
+{
+    int x,y;
+    cout<<"enter the values of x and y";
+  cin>>x>>y;
+  f(x,y);
+
+  return 0;
+}
+void f(int &a,int &b)
+{  int tem;
+    tem=a;
+    a=b;
+    b=tem;
+    cout<<"after swapping no. is x is"<<a<<"and"<<b;
+    
+}
+
+7..
+#include<iostream>
+int sum(int,int,int=0);
+using namespace std;
+int main()
+{
+    int a,b,c;
+    cout<<"enter the two numbers ";
+    cin>>a>>b;
+    cout<<"sum is "<<sum(a,b);
+    cout<<"enter the three numbers";
+    cin>>a>>b>>c;
+    cout<<"sum is"<<sum(a,b,c);
+    return 0;
+
+}
+int sum(int x,int y,int z)
+{
+    return x+y+z;
+}
+
+
+8.
+
+#include<iostream>
+using namespace std;
+void add(int);
+void add(int,int);
+void add(float  ,float );
+
+int main()
+{
+    int a ,b;
+    float c,d;
+    cout<<"enter the radius ";
+    cin>>a;
+    add(a);
+    cout<<"\n enter the length and breadth ";
+    cin>>a>>b;
+    add(a,b);
+    cout<<"\n enter the base and height ";
+    cin>>c>>d;
+    add(c,d);
+
+return 0;
+
+
+}
+void add(int r)
+{
+    float area=3.14*r*r;
+    cout<<"area of circle is"<<area;
+
+}
+void add(int a,int b)
+{
+    float area=a*b;
+    cout<<"area  of rectangle is"<<area;
+
+}
+void add(float j,float f)
+{
+    float area=0.5*j*f;
+    cout<<"area  of triangle is "<<area;
+
+}
+
+
+9.
+#include<iostream>
+using namespace std;
+
+int Greater(int a,int b)
+{
+    if(a>b){
+        return a;
+    }
+    else
+
+    {
+    return b ;
+    }
+
+
+}
+int Greater(float j,float f)
+{
+    if(j>f)
+    {
+        return j ;
+
+    }
+    else{
+
+        return f;
+    }
+
+
+}
+
+int main()
+{
+    int a ,b;
+    float c,d;
+    cout<<"enter the two number";
+    cin>>a>>b;
+    cout<<"enter the two number";
+    cin>>c>>d;
+
+    cout<<"greater number is a"<<Greater(a,b);
+    cout<<"greater number is c"<<Greater(c,d);
+
+return 0;
+
+
+}
+10.
+
+#include<iostream>
+using namespace std;
+
+int add(int a,int b)
+{
+    return a+b;
+
+
+}
+float add(float j,float f)
+{
+    return j+f;
+
+}
+
+int main()
+{
+    int a ,b;
+    float c,d;
+    cout<<"enter the two number";
+    cin>>a>>b;
+    cout<<"enter the two number";
+    cin>>c>>d;
+
+    cout<<add(a,b)<<endl;
+    cout<<add(c,d);
+
+return 0;
+
+
+}
+

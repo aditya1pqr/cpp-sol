@@ -1,0 +1,434 @@
+1.
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+private :
+    int real;
+    int img;
+public:
+     void set(int x,int y)
+    {
+        real=x;
+        img=y;
+
+
+    }
+    void  showdata()
+    {
+        cout<<real<<"+"<<img<<"i\n";
+
+    }
+
+};
+int main()
+{
+    Complex b1,b2;
+    int c,d,e,f;
+    cout<<"enter the first complex number";
+    cin>>c>>d;
+
+    b1.set(c,d);
+    cout<<"enter the second complex number";
+    cin>>e>>f;
+    b2.set(e,f);
+    b1.showdata();
+    b2.showdata();
+
+}
+
+2.
+
+#include<iostream>
+using namespace std;
+class time
+{
+private :
+    int hr;
+    int mn;
+    int sec;
+public:
+     void set(int x,int y,int z)
+    {
+        hr=x;
+        mn=y;
+        sec=z;
+
+
+    }
+    void  showdata()
+    {
+        cout<<hr<<"hr  "<<mn<<"min  "<<sec<<"sec";
+
+    }
+
+};
+int main()
+{
+    time b1;
+    int c,d,e;
+    cout<<"enter the hr min and sec";
+    cin>>c>>d>>e;
+
+    b1.set(c,d,e);
+    b1.showdata();
+
+
+}
+
+3.
+
+#include<iostream>
+using namespace std;
+class factorial
+{
+private :
+    int num;
+
+public:
+     void set(int x)
+    {
+
+        int sum=1;
+       for(int i=x;i>1;i--)
+       {
+           sum=sum*i;
+       }
+
+     num=sum;
+    }
+    void  showdata()
+    {
+        cout<<num;
+
+
+    }
+};
+int main()
+{
+    factorial b1;
+    int c;
+    cout<<"enter the number";
+    cin>>c;
+
+    b1.set(c);
+    b1.showdata();
+
+
+}
+
+4.
+
+#include<iostream>
+using namespace std;
+class LargestNumber
+{
+private :
+    int num;
+
+public:
+     void data(int x,int y,int z)
+    {
+
+        if(x>y)
+        {
+            cout<<"greater number is "<<x;
+        }
+        else if(y>z)
+        {
+            cout<<"greater number is "<<y;
+
+        }
+        else
+        {
+            cout<<"greater number is "<<z;
+        }
+    }
+
+};
+int main()
+{
+    LargestNumber b1;
+    int c,d,e;
+    cout<<"enter the three numbers";
+    cin>>c>>d>>e;
+
+    b1.data(c,d,e);
+
+
+
+}
+
+5.
+
+#include<iostream>
+using namespace std;
+class ReverseNumber
+{
+private :
+    int num;
+
+public:
+     void data(int x)
+    {
+        int rev=0;
+        while(x>0)
+        {
+            int rem=x%10;
+             rev=rev*10+rem;
+            x=x/10;
+        }
+    num=rev;
+    }
+    void showrev()
+    {
+        cout<<num;
+    }
+};
+int main()
+{
+    ReverseNumber b1;
+    int c;
+    cout<<"enter the  numbers";
+    cin>>c;
+
+    b1.data(c);
+    b1.showrev();
+
+
+
+}
+
+
+
+
+6.
+#include<iostream>
+using namespace std;
+class Square
+{
+    private:
+    int x;
+    int square;
+    static int count;
+
+public:
+   void setdata(int a)
+     {
+        x=a;
+     }
+     void findsqr()
+     {
+         square=x*x;
+         count++;
+     }
+     int get_count()
+     {
+         return count;
+     }
+      int get_square()
+     {
+         return square;
+     }
+};
+int Square::count=0;
+int main()
+{
+ Square s1;
+ s1.setdata(10);
+ s1.findsqr();
+ cout<<s1.get_square()<<endl;
+ cout<<"count is "<<s1.get_count()<<endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+7.
+
+#include<iostream>
+using namespace std;
+class Greatest
+{
+private:
+    int a,b,c;
+    int max;
+public:
+    setdata(int x,int y,int z)
+    {
+        a=x;
+        b=y;
+        c=z;
+    }
+   int  findgreatest()
+    {
+        if(a>b&&a>c)
+        {
+            max=a;
+        }
+        else if(b>a&&b>c)
+        {
+            max=b;
+        }
+        else if(c>a&&c>b)
+        {
+            max=c;
+        }
+       return this->get_max();
+    }
+     int get_max()
+    {
+        return max;
+    }
+};
+
+
+
+int main()
+{
+    Greatest s1;
+    s1.setdata(12,20,40);
+   cout<<s1.findgreatest()<<endl;
+    return 0;
+}
+
+
+
+8.
+
+#include<iostream>
+using namespace std;
+class rectangle
+{
+private :
+    int len;
+    int bre;
+
+public:
+     void set(int x,int y)
+    {
+        len=x;
+        bre=y;
+
+   }
+   void area()
+   {
+       cout<<len*bre;
+   }
+};
+int main()
+{
+    rectangle b1;
+    int c,d;
+    cout<<"enter the length and breadth";
+    cin>>c>>d;
+
+    b1.set(c,d);
+    b1.area();
+
+return 0;
+}
+
+9.
+
+
+#include<iostream>
+using namespace std;
+class circle
+{
+private :
+    int r;
+
+
+public:
+     void set(int x)
+    {
+        r=x;
+    }
+   void area()
+   {
+       cout<<3.14*r*r;
+   }
+};
+int main()
+{
+    circle b1;
+    int c;
+    cout<<"enter the radius";
+    cin>>c;
+
+    b1.set(c);
+    b1.area();
+
+return 0;
+}
+10.
+
+
+#include<iostream>
+using namespace std;
+class Area
+{
+   private:
+       double length;
+       double radius;
+       double breadth;
+
+   public:
+      void set_length(double a)
+       {
+        length=a ;
+       }
+      void set_breadth(double a)
+       {
+         breadth =a;
+       }
+      void set_radius(double a)
+       {
+         radius =a;
+       }
+
+        double area_circle()
+       {
+           double area;
+           area=3.14*radius*radius;
+           return area ;
+       }
+        double area_rectangle()
+       {
+           double area;
+           area=length*breadth;
+           return area ;
+       }
+        double area_square()
+       {
+           double area;
+           area=length*length;
+           return area ;
+       }
+};
+int main()
+{
+    Area a;
+    a.set_length(5.5);
+    a.set_radius(12);
+    a.set_breadth(10);
+
+   cout<<a.area_rectangle()<<endl;
+     cout<<a.area_circle()<<endl;
+       cout<<a.area_square()<<endl;
+    return 0;
+}
+
+
+
+
+
