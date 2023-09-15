@@ -1,0 +1,423 @@
+1.
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+    private :
+        int a;
+        int b;
+    public:
+        void setData(int x,int y)
+        {
+            a=x;
+            b=y;
+
+        }
+        void showData()
+        {
+            cout<<a<<"+"<<b<<"i"<<endl;
+        }
+        Complex add(Complex C)
+        {
+            Complex temp;
+            temp.a=a+C.a;
+            temp.b=b+C.b;
+            return temp;
+        }
+};
+int main()
+{
+    Complex c1,c2,c3;
+    int c,d,e,f;
+    cout<<"enter the first complex number ";
+    cin>>c>>d;
+
+    c1.setData(c,d);
+    cout<<"enter the second complex number ";
+    cin>>e>>f;
+    c2.setData(e,f);
+    c1.showData();
+    c2.showData();
+    c3=c1.add(c2);
+    c3.showData();
+}
+
+
+2.
+
+
+
+#include<iostream>
+using namespace std;
+class time
+{
+    private :
+        int h;
+        int m;
+        int s;
+    public:
+        void setData(int x,int y,int z)
+        {
+            h=x;
+            m=y;
+            s=z;
+
+        }
+        void showData()
+        {
+            cout<<h<<"hours "<<m<<"minutes "<<s<<"second "<<endl;
+        }
+        void normalize()
+        {
+            if(s>=60)
+            {
+                int k=s/60;
+                    m=m+k;
+                    s=s%60;
+                    if(m>=60)
+                    {
+                        int n=m/60;
+                        h=h+n;
+                        m=m%60;
+                    }
+            }
+
+        }
+        time add(time t)
+        {
+            time temp;
+            temp.h=h+t.h;
+            temp.m=m+t.m;
+            temp.s=s+t.s;
+            return temp;
+        }
+};
+int main()
+{
+    time c1,c2,c3;
+    int c,d,e,f,g,h;
+    cout<<"enter the first time";
+    cin>>c>>d>>e;
+
+    c1.setData(c,d,e);
+    cout<<"enter the second time ";
+    cin>>f>>g>>h;
+    c2.setData(f,g,h);
+    c1.showData();
+     c2.showData();
+      c1.normalize();
+      c1.showData();
+      c3=c1.add(c2);
+      c3.showData();
+
+}
+
+
+3.
+
+
+#include<iostream>
+using namespace std;
+class cube
+{
+private:
+    int side;
+public:
+    cube(int x)
+    {
+        side=x;
+    }
+
+    float find_cube()
+    {
+        float vol;
+        vol=side*side;
+        return vol;
+    }
+cube()
+{
+
+}
+
+
+};
+int main()
+{
+    cube a(10);
+    cout<<"volume of cube "<<a.find_cube();
+
+    return 0;
+}
+
+4.
+
+
+#include<iostream>
+using namespace std;
+class counter
+{
+ private:
+     static int count;
+ public:
+    counter()
+    {
+      count++;
+    }
+     int get_count()
+    {
+        return count;
+    }
+};
+int counter::count;
+int main()
+{
+    counter c1,c2,c3,c4;
+    cout<<c1.get_count();
+    return 0;
+}
+
+
+
+5.
+
+
+#include<iostream>
+using namespace std;
+class Date
+{
+private:
+    int day;
+    int month;
+    int year;
+public:
+    Date(int x,int y,int z)
+    {
+        day=x;
+        month=y;
+        year=z;
+    }
+    display_date()
+    {
+        cout<<day<<" - "<<month<<" - "<<year<<endl;
+    }
+
+
+
+};
+int main()
+{
+    Date d1(10,10,2023);
+    d1.display_date();
+    return 0;
+}
+
+
+
+
+6.
+
+
+#include<iostream>
+using namespace std;
+class student
+{
+private:
+    string name;
+    int age;
+    int roll_num;
+public:
+    student(string x,int y,int z)
+    {
+        name=x;
+        age=y;
+        roll_num=z;
+    }
+    display_stu()
+    {
+        cout<<"Name is "<<name<<" age "<<age<<" roll num is "<<roll_num<<endl;
+    }
+};
+int main()
+{
+    student s1("Aditya",22,1000);
+    s1.display_stu();
+    return 0;
+}
+
+
+7.
+
+#include<iostream>
+using namespace std;
+class Box
+{
+private:
+    int length ;
+    int breadth ;
+    int height;
+public:
+    Box(int x,int y,int z)
+    {
+        length=x;
+        breadth=y;
+        height=z;
+    }
+     int find_volume()
+    {
+        int vol= length* breadth * height;
+        return vol;
+    }
+};
+int main()
+{ int l,b, h;
+    cout<<"Enter length ,breadth and height"<<endl;
+    cin>>l>>b>>h;
+    Box b1(l,b,h);
+    cout<<"volume of box "<<b1.find_volume();
+    return 0;
+}
+
+
+
+
+8.
+
+#include<iostream>
+using namespace std;
+
+class Bank
+{
+ private:
+     float p;
+     float r;
+     float t;
+     float si;
+     float amount;
+
+ public:
+    void read ( )
+          {
+                 cout <<" Enter Principle Amount :: ";
+                 cin>>p ;
+                 cout<<"\n Enter Rate of Interest :: ";
+                 cin>>r;
+                 cout <<"\n Enter Number of years :: ";
+                 cin>>t;
+
+                 si= (p *r*t) /100;
+                 amount = si + p;
+
+          }
+
+    void show( )
+         {
+                cout<<"\n Entered Details are :: \n";
+                cout<<"\n Principle Amount: "<<p;
+                cout <<"\n\n Rate of Interest: "<<r;
+                cout <<"\n\n Number of years: "<<t;
+                cout <<"\n\n Interest : "<<si;
+                cout <<"\n\n Total Amount : "<<amount<<"\n";
+         }
+};
+
+
+int main ()
+{
+    Bank b ;
+
+    b.read ( );
+    b.show ( );
+
+    return 0;
+}
+
+
+
+
+9.
+
+#include<iostream>
+using namespace std;
+class Bill
+{
+private:
+    string name;
+    int unit;
+    int bill_amt;
+public:
+    Bill(string x,int y)
+   {
+       name=x;
+       unit=y;
+   }
+   void  calculateBill()
+    {
+        if(unit<=100)
+        {
+            bill_amt=1.20*unit;
+        }
+        else if(unit>100&&unit<=200)
+        {
+            bill_amt=2*unit;
+        }
+          else if(unit>200)
+        {
+            bill_amt=3*unit;
+        }
+
+    }
+   void displaybill()
+    {
+        cout<<"Name => "<<name<<endl<<"Unit they consumed =>"<<unit<<" units"<<endl<<"Bill amount => Rs"<<bill_amt<<endl;
+    }
+
+};
+int main()
+{
+    string n;
+    int unit;
+    cout<<"Enter Customer details name and unit of that customer"<<endl;
+    cout<<"Enter name "<<endl;
+    cin>>n;
+    cout<<"Enter unit of that customer"<<endl;
+    cin>>unit;
+    Bill b1(n,unit);
+    b1.calculateBill();
+    b1.displaybill();
+
+
+    return 0;
+}
+
+
+
+10.
+
+
+#include<iostream>
+using namespace std;
+class staticCount
+{
+private:
+    static int val;
+public:
+    fun()
+    {
+        val++;
+    }
+   int  get_val()
+    {
+        return val;
+    }
+};
+int staticCount::val=0;
+int main()
+{
+    staticCount s1;
+    s1.fun();
+     s1.fun();
+     s1.fun();
+    cout<<s1.get_val();
+    return 0;
+}
