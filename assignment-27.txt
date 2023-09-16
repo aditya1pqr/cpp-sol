@@ -1,0 +1,608 @@
+1.
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+private:
+    int real;
+    int img;
+public:
+    Complex(int x,int y)
+    {
+        real=x;
+        img=y;
+
+    }
+    Complex()
+    {
+
+
+    }
+    Complex operator+(Complex c)
+    {
+        Complex temp;
+        temp.real=real+c.real;
+        temp.img=img+c.img;
+        return temp;
+    }
+    Complex operator-(Complex d)
+    {
+        Complex tre;
+        tre.real=real-d.real;
+        tre.img=img-d.img;
+        return tre;
+    }
+    Complex operator*(Complex e)
+    {
+        Complex tut;
+        tut.real=(real*e.real)+(-1*img*e.img);
+        tut.img=(real*e.img)+(img*e.real);
+        return tut;
+    }
+    void operator==(Complex f)
+     {
+         if(real==f.real&&img==f.img)
+         {
+             cout<<"complex number are equal"<<endl;
+         }
+         else
+         {
+             cout<<"complex number is not equal two"<<endl;
+         }
+     }
+    void display()
+    {
+        cout<<real<<"+"<<img<<"i"<<endl;
+    }
+};
+int main()
+{
+    Complex c1(2,2),c2(2,2);
+    c1.display();
+    c2.display();
+    Complex c3;
+    c3=c1+c2;
+    c3.display();
+    Complex c4;
+    c4=c1-c2;
+    c4.display();
+    Complex c5;
+    c5=c1*c2;
+    c5.display();
+    Complex c6;
+    c1==c2;
+    return 0;
+
+}
+
+2.
+#include<iostream>
+using namespace std;
+class Time
+{
+private:
+    int hours;
+    int minutes;
+    int seconds;
+public:
+    void set(int x,int y,int z)
+    {
+        hours=x;
+        minutes=y;
+        seconds=z;
+    }
+    void display()
+    {
+        cout<<"hours:"<<hours<<endl<<"minutes:"<<minutes<<endl<<"seconds:"<<seconds<<endl;
+    }
+    operator ==(Time c)
+    {
+        if(hours==c.hours&&minutes==c.minutes&&seconds==c.seconds)
+        {
+            cout<<"time are same";
+        }
+        return 0;
+    }
+};
+int main()
+{ int h,m,s;
+cout<<"Enter the first time "<<endl;
+cout<<"------------"<<endl;
+cout<<"Enters hours:";
+cin>>h;
+cout<<"Enters minutes:";
+cin>>m;
+cout<<"Enters seconds:";
+cin>>s;
+Time t1;
+t1.set(h,m,s);
+cout<<"first time"<<endl;
+t1.display();
+cout<<"Enter the second time "<<endl;
+cout<<"------------"<<endl;
+cout<<"Enters hours:";
+cin>>h;
+cout<<"Enters minutes:";
+cin>>m;
+cout<<"Enters seconds:";
+cin>>s;
+Time t2;
+t2.set(h,m,s);
+cout<<"second time"<<endl;
+t2.display();
+t1==t2;
+}
+
+
+
+3.
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+    int  real;
+    int img;
+public:
+    Complex(int x,int y)
+    {
+
+        real=x;
+        img=y;
+    }
+    Complex()
+    {
+
+    }
+     void display()
+     {
+         cout<<"Real = "<<real<<" img = "<<img<<endl;
+     }
+    friend Complex operator+(Complex,Complex);
+};
+Complex operator+(Complex c1,Complex c2)
+{
+    Complex temp;
+    temp.real=c1.real+c2.real;
+    temp.img=c1.img+c2.img;
+    return temp;
+}
+int main()
+{
+    Complex t1(2,5);
+    Complex t2(6,2);
+    Complex t3;
+    t3=t1+t2;
+    t3.display();
+
+
+
+
+    return 0;
+}
+
+
+
+
+4.
+
+#include<iostream>
+using namespace std;
+class Time
+{
+ public:
+     int hours;
+     int minutes;
+     int second;
+ public:
+    Time()
+    {
+
+    }
+    operator==(Time s)
+    {
+       if( hours==s.hours && minutes==s.minutes && second==s.second)
+       {
+          cout<<"\n Time is same";
+       }
+       else
+       {
+           cout<<"\n Time is not same";
+       }
+
+    }
+
+     friend istream& operator>>(istream &io, const Time & p);
+     friend ostream& operator<<(ostream &os, const Time & t);
+
+};
+istream& operator>>(istream &io,Time & p)
+{
+    cout<<"Enter Hours : ";
+    io>>p.hours;
+    cout<<"\nEnter minutes : ";
+    io>>p.minutes;
+    cout<<"\nEnter second : ";
+    io>>p.second;
+    return io;
+
+}
+ ostream& operator<<(ostream &os,Time & p)
+{
+     os<<"Hours :"<<p.hours<<endl;
+     os<<"Minutes :"<<p.minutes<<endl;
+     os<<"Second :"<<p.second<<endl;
+    return os;
+ }
+int main()
+{
+    Time t1;
+    cout<<"Enter First Time"<<endl;
+    cout<<"---------------------------"<<endl;
+    cin>>t1;
+    cout<<"\nFirst time : "<<endl;
+   cout<<t1;
+  Time t2;
+    cout<<"Enter second Time"<<endl;
+    cout<<"---------------------------"<<endl;
+    cin>>t2;
+    cout<<"\nSecond time : "<<endl;
+   cout<<t2;
+ t1==t2;
+    return 0;
+}
+
+
+5.
+
+#include<iostream>
+using namespace std;
+class number
+{
+    int x,y,z;
+public:
+    number( int a,int b,int c)
+    {
+        x=a;
+        y=b;
+        z=c;
+    }
+    number operator-()
+    {
+        number temp;
+        temp.x=-x;
+        temp.y=-y;
+        temp.z=-z;
+        return temp;
+
+    }
+    number()
+    {
+
+    }
+    display()
+    {
+        cout<<"values of x = "<<x<<" y= "<<y<<" z= "<<z<<endl;
+    }
+};
+int main()
+{
+    number n1(2,3,4);
+    number n2;
+    n2=-n1;
+    n2.display();
+
+    return 0;
+}
+
+6.
+
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+class CString
+{
+    char str[20];
+public:
+    void accept()
+    {
+        cin>>str;
+    }
+  CString operator+(CString c)
+   {
+        CString temp;
+        strcpy(temp.str,str);
+        strcat(temp.str,c.str);
+        return temp;
+   }
+ int operator==(CString c)
+   {
+
+       return   strcmp(str,c.str);
+   }
+   void display()
+   {
+       cout<<str;
+   }
+};
+int main()
+{
+    CString s1 ,s2 ,s3;
+    cout<<"Enter first string        :";
+    s1.accept();
+    cout<<endl;
+    cout<<"Enter second string        :";
+    s2.accept();
+
+    s3=s1+s2;
+
+    s3.display();
+     cout<<endl;
+    if(s1==s2)
+    {
+        cout<<"String are not equal";
+    }
+    else
+    {
+        cout<<"String are equal";
+
+    }
+
+    return 0;
+}
+
+
+
+7.
+
+#include<iostream>
+using namespace std;
+class fraction
+{
+    long numerator;
+    long denominator;
+public:
+    fraction(long int  n=0,long int d=0)
+    {
+        numerator=n;
+        denominator=d;
+
+    }
+    fraction()
+    {
+
+    }
+    friend ostream& operator<<(ostream &os,fraction f)
+     {
+        os<<f.numerator<<"/"<<f.denominator<<endl;
+        return os;
+    }
+    friend istream& operator>>(istream &is,fraction &f)
+     {
+       cout<<"numerator     : ";
+       is>>f.numerator;
+       cout<<"denominator   : ";
+       is>>f.denominator;
+
+       return is;
+   }
+
+     fraction operator++(int dummy)
+    { fraction temp=*this;
+        numerator++;
+        denominator++;
+       return temp;
+    }
+     fraction operator++()
+    {
+       ++numerator;
+       ++denominator;
+       return (*this);
+    }
+
+};
+
+
+int main()
+{
+
+    fraction f1(0,0);
+    fraction f2(0,0);
+    cout<<"f1      :"<<f1;
+    cout<<"f2       :"<<f2;
+    cout<<"Enter 1st Fraction value"<<endl;
+  cin>>f1;
+  f1++;
+  cout<<"f1++       :"<<f1;
+   ++f1;
+
+ cout<<"++f1      :"<<f1;
+  cout<<"Enter 2nd Fraction value"<<endl;
+  cin>>f2;
+  f2=++f1;
+  cout<<"  f2=++f1 "<<endl;
+  cout<<"f1       :"<<f1;
+ cout<<"f2       :"<<f2;
+
+ cout<<"f2=f1++;"<<endl;
+
+ f2=f1++;
+ cout<<"f1       :"<<f1;
+cout<<"f2       :"<<f2;
+
+
+
+    return 0;
+}
+
+
+
+8.
+
+
+#include<iostream>
+using namespace std;
+class Matrix
+{
+private:
+    int a[3][3];
+public:
+    void accept()
+    {
+        cout<<"enter the 3*3 matix"<<endl;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                cin>>a[i][j];
+
+            }
+        }
+    }
+    void display()
+    {
+        cout<<"Matrix is :"<<endl;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                cout<<a[i][j];
+                cout<<" ";
+            }
+            cout<<endl;
+        }
+
+    }
+     void operator-()
+     {
+         for(int i=0;i<3;i++)
+         {
+             for(int j=0;j<3;j++)
+             {
+                 a[i][j]=-a[i][j];
+
+             }
+         }
+     }
+};
+int main()
+{
+Matrix m1;
+m1.accept();
+m1.display();
+-m1;
+m1.display();
+return 0;
+}
+
+
+9.
+
+#include<iostream>
+using namespace std;
+class mystring
+{
+private:
+   char str[100];
+public:
+    void accept()
+    {
+        cout<<"enter string   :  "<<endl;
+        cin>>str;
+    }
+     void display()
+    {
+        cout<<str<<endl;
+
+    }
+    void operator!()
+    {
+        for(int i=0;str[i]!='\0';i++)
+        {
+            if(str[i]>=97&&str[i]<=122)
+            {
+                str[i]=str[i]-32;
+
+
+            }
+            else if(str[i]>=65&&str[i]<=90)
+            {
+                str[i]=str[i]+32;
+        }
+
+    }
+    }
+};
+int main()
+{
+     mystring s;
+    s.accept();
+    s.display();
+    cout<<"new string  :  "<<endl;
+    !s;
+    s.display();
+    return 0;
+}
+ 
+10.
+
+#include<iostream>
+using namespace std;
+class Matrix
+{
+    int a[3][3];
+public:
+    void input()
+    {
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+    }
+    void display()
+    {
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                cout<<a[i][j]<<" ";
+            }
+            cout<<endl;
+        }
+    }
+    Matrix operator+(Matrix x)
+    {
+        Matrix temp;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                temp.a[i][j]=a[i][j]+x.a[i][j];
+            }
+
+        }
+        return temp;
+    }
+};
+int main()
+{  Matrix m1,m2,m3;
+cout<<"Enter Matrix Element (3X3) :"<<endl;
+m1.input();
+
+cout<<"Enter Matrix Element (3X3) :"<<endl;
+m2.input();
+cout<<"First Matrix :"<<endl;
+m1.display();
+cout<<"Second  Matrix :"<<endl;
+m2.display();
+m3=m1+m2;
+cout<<"Addition of Matrix : "<<endl;
+m3.display();
+    return 0;
+}
+
