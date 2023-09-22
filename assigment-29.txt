@@ -1,0 +1,546 @@
+1.
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+    int real;
+    int  img;
+public:
+    Complex()
+    {
+
+    }
+    Complex(int x)
+    {
+        real=x;
+        img=x;
+
+    }
+    void display()
+    {
+        cout<<"Real ="<<real<<" Img="<<img<<endl;
+    }
+     void operator=(int x)
+    {
+         real=x;
+        img=x;
+
+    }
+
+};
+int main()
+{
+    int x=5;
+    Complex c1;
+    c1=x;
+
+    c1.display();
+
+    return 0;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2.
+
+
+#include<iostream>
+using namespace std;
+class Complex
+{
+    int real;
+    int  img;
+public:
+    Complex()
+    {
+
+    }
+   void setData(int x,int y)
+   {
+       real=x;
+       img=y;
+   }
+    void display()
+    {
+        cout<<"Real ="<<real<<" Img="<<img<<endl;
+    }
+   operator int()
+   {
+    return real;
+   }
+
+};
+int main()
+{
+     int x;
+     Complex c1;
+     c1.setData(3,4);
+     x=c1;
+     cout<<"x value is "<<x;
+
+
+
+    return 0;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3.
+
+#include<iostream>
+using namespace std;
+
+class Product
+{
+    int a,b;
+public:
+
+   void setData(int x,int y)
+    {
+        a=x;
+        b=y;
+
+    }
+    getData1()
+    {
+        return a;
+    }
+     getData2()
+    {
+        return b;
+    }
+
+};
+class Item
+{
+
+    int  xi1,xi2;
+public:
+    Item(){}
+   void  display()
+    {
+        cout<<"xi1="<<xi1<<" xi2="<<xi2;
+    }
+  Item( Product p1 )
+    {
+
+        xi1=  p1.getData1();
+        xi2= p1.getData2();
+
+    }
+
+};
+int main()
+{
+    Item i1;
+    Product p1;
+    p1.setData(3,4);
+    i1=(Item)p1;
+    i1.display();
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+4.
+
+
+
+#include<iostream>
+using namespace std;
+
+class Product
+{
+    int a,b;
+public:
+
+   void setData(int x,int y)
+    {
+        a=x;
+        b=y;
+
+    }
+    getData1()
+    {
+        return a;
+    }
+     getData2()
+    {
+        return b;
+    }
+
+};
+class Item
+{
+
+    int  xi1,xi2;
+public:
+    Item(){}
+   void  display()
+    {
+        cout<<"xi1="<<xi1<<" xi2="<<xi2;
+    }
+  operator Item()
+    {
+        Product p1;
+        xi1=  p1.getData1();
+        xi2= p1.getData2();
+
+    }
+operator=(Product p1)
+{
+    // Product p1;
+        xi1=  p1.getData1();
+        xi2= p1.getData2();
+
+}
+};
+int main()
+{
+    Item i1;
+    Product p1;
+    p1.setData(3,4);
+    i1=p1;
+    i1.display();
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+5.
+
+
+#include<iostream>
+using namespace std;
+class Invent1
+{
+    int x;
+    int y;
+public:
+    Invent1()
+    {
+
+    }
+    Invent1(int a,int b)
+    {
+        x=a;
+        y=b;
+    }
+    void display()
+    {
+        cout<<"x ="<<x<<" y ="<<y<<endl;
+    }
+    int get_val1()
+    {
+        return x;
+    }
+    int  get_val2()
+    {
+        return y;
+    }
+    operator float()
+    {
+        return x;
+    }
+} ;
+class Invent2
+{
+    int x1;
+    int y1;
+public:
+    Invent2()
+    {
+
+    }
+    Invent2(int a,int b)
+    {
+        x1=a;
+        y1=b;
+    }
+    void display()
+    {
+        cout<<"x1 ="<<x1<<" y1 ="<<y1<<endl;
+    }
+    operator Invent2()
+    {
+
+        Invent1 s;
+        x1=s.get_val1();
+        y1=s.get_val2();
+
+    }
+     operator =( Invent1 s)
+    {
+
+
+        x1=s.get_val1();
+        y1=s.get_val2();
+
+    }
+} ;
+
+int main()
+{
+ Invent1 s1(4,5);
+ Invent2 d1;
+ float tv;
+ tv=s1;
+ cout<<"value of tv "<<tv<<endl;;
+ d1=s1;
+ d1.display();
+ return 0;
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+6.
+
+#include<iostream>
+using namespace std;
+class Time
+{
+    int hours;
+    int mint;
+    int sec;
+public:
+Time()
+{
+
+}
+Time(int x)
+{
+    if (x>=60)
+    { int a=x;
+        hours=x/60;
+        mint=a%60;
+    }
+else{
+        hours=0;
+    mint=x;
+}
+
+    sec=0;
+
+}
+void display()
+{
+    cout<<"Hours ="<<hours<<" Minutes ="<<mint<<" Second="<<sec<<endl;
+}
+};
+int main()
+{
+
+ int duration;
+ cout<<"Enter time duration in minutes  ";
+ cin>>duration;
+ Time t1 = (Time)duration;
+ t1.display();
+ return 0;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+7.
+
+#include<iostream>
+using namespace std;
+class Time
+{
+    int hours;
+    int mint;
+public:
+    Time(){}
+    Time(int x,int y)
+    {
+        hours=x;
+        mint=y;
+    }
+    void display()
+    {
+        cout<<"hours ="<<hours<<" minutes = "<<mint<<endl;
+    }
+    int getmin()
+    {
+        return mint;
+    }
+
+};
+class Minute
+{
+    int m;
+public:
+    Minute()
+    {
+
+    }
+    Minute(int y)
+    {
+       m=y;
+    }
+    operator Minute()
+    {
+        Time t;
+        m=t.getmin();
+    }
+    operator=(Time t)
+    {
+
+        m=t.getmin();
+    }
+void display()
+    {
+        cout<<"minutes = "<<m<<endl;
+    }
+};
+int main()
+{
+
+    Time t1(2,30);
+ t1.display();
+ Minute m1;
+ m1.display();
+ m1=t1;
+ t1.display();
+ m1.display();
+ return 0;
+
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+8.
+
+#include<iostream>
+using namespace std;
+class Rupee
+{
+    int x;
+public:
+    Rupee(){}
+    Rupee(int a)
+    {
+        x=a;
+
+    }
+    void display()
+    {
+        cout<<"Rupee ="<<x<<endl;
+    }
+    operator int()
+    {
+        return x;
+    }
+};
+int main()
+{
+ Rupee r = 10;
+ int x = r;
+cout<<x;
+ return 0;
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+9.
+
+
+#include<iostream>
+using namespace std;
+class Dollar
+{
+    int x;
+public:
+    Dollar(){}
+    Dollar(int a)
+    {
+        
+        x=a;
+
+    }
+    void display()
+    {
+        cout<<"Dollar ="<<x<<endl;
+    }
+
+};
+int main()
+{
+ int x = 50;
+Dollar d;
+d = x;
+d.display();
+ return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+10.
+
+#include<iostream>
+using namespace std;
+class Rupee
+{
+    float x;
+public:
+    Rupee()
+    {
+
+    }
+    Rupee(int a)
+    {
+        x=(float)a;
+    }
+    void display()
+    {
+        cout<<"Rupee ="<<x<<endl;
+    }
+    float getrup()
+    {
+        return x;
+    }
+
+};
+class Dollar
+{
+    float d;
+public:
+    Dollar()
+    {
+
+    }
+    Dollar(Rupee r1)
+    {
+          d=r1.getrup()/100.0;
+    }
+
+      void display()
+    {
+        cout<<"Dollar ="<<d<<endl;
+    }
+      operator Rupee()
+    {
+        return d*100;
+
+
+    }
+};
+
+int main()
+{
+ Rupee r = 23;
+Dollar d = r;
+d.display();
+r.display();
+r = d;
+d.display();
+r.display();
+ return 0;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  End   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
