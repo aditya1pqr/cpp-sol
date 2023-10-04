@@ -1,0 +1,867 @@
+1.
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+class Person
+{
+    protected:
+    char name [50];
+    int age;
+public:
+   void  setname( char* n)
+    {
+        strcpy(name,n);
+    }
+     void setage(int a)
+     {
+         age=a;
+     }
+    char*  getname()
+    {
+        return name;
+    }
+    int getage()
+    {
+        return age;
+    }
+};
+class Employee:public  Person
+{
+    int empId;
+    float salary;
+public:
+    setempId(int b)
+    {
+        empId=b;
+    }
+    void setsalary(float c)
+    {
+        salary=c;
+    }
+    int getempId()
+    {
+        return empId;
+    }
+     float getsalary()
+    {
+        return salary;
+    }
+    void display()
+    {
+     cout<<"NAME = "  <<name<<" AGE= "<<age<<" EMPLOYEE ID = "<<empId<<" SALARY ="<<salary<<endl;
+    }
+};
+int main()
+{
+    Employee e1;
+    e1.setname("Niraj raj");
+    e1.setage(25);
+    e1.setempId(420);
+    e1.setsalary(4200);
+    e1.display();
+    return 0;
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2.
+
+
+#include<iostream>
+using namespace std;
+class Base
+{
+protected:
+    int a;
+    int b;
+public:
+     void setnumber()
+     {
+    cout<<"enter the two numbers"<<endl;
+    cin>>a>>b;
+     }
+};
+class addition:public Base
+{
+public:
+    int getadd()
+    {
+        return a+b;
+    }
+    void display()
+    {
+        cout<<"addition of two numbers is "<<getadd()<<endl;
+    }
+};
+int main()
+{
+    addition a1;
+    a1.setnumber();
+    a1.getadd();
+    a1.display();
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+3.
+
+
+#include<iostream>
+using namespace std;
+class Student
+{
+protected:
+    int a,b,c;
+public:
+    void setmarks()
+    {
+        cout<<"enter the marks"<<endl;
+        cin>>a>>b>>c;
+
+
+    }
+};
+class totalmarks:public Student
+{
+protected:
+    int total;
+public:
+    void calmarks()
+    {
+        total=a+b+c;
+    }
+};
+class calpercentage:public totalmarks
+{
+    float per;
+public:
+  float caltotalper()
+  {
+     per=(total/300.0)*100;
+     return per;
+  }
+  void display()
+  {
+     cout<<"percentage of  three students is " <<caltotalper()<<"%"<<endl;
+
+  }
+
+};
+int main()
+{
+    calpercentage c1;
+    c1.setmarks();
+    c1.calmarks();
+    c1.caltotalper();
+    c1.display();
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4.
+
+
+#include<iostream>
+using namespace std;
+class Person
+{
+protected:
+    char name[50];
+    char address[50];
+    long long phonenumber;
+};
+class Employee: public Person
+{
+public:
+    int eno;
+    char ename[50];
+
+};
+class Manager :public Employee
+{
+public:
+    char designation[50],deptname[100];
+    float basic_salary;
+public:
+    void accept_details()
+    {
+        cout<<" Enter Details of manager"<<endl;
+        cout<<"---------------------------"<<endl;
+        cout<<" Enter Employee no. : ";
+        cin>>eno;
+        cout<<" Enter Name : ";
+        cin>>ename;
+        cout<<" Enter Address : ";
+        cin>>address;
+        cout<<" Enter Phone No. : ";
+        cin>>phonenumber;
+        cout<<" Enter Designation :  ";
+        cin>>designation;
+        cout<<" Enter Department Name : ";
+        cin>>deptname;
+        cout<<" Enter Basic Salary : ";
+        cin>>basic_salary;
+    }
+};
+int main()
+{
+    int i,cnt,temp;
+    Manager man[100];
+    cout<<"\n How Many Managers you want to Enter ? : ";
+    cin>>cnt;
+    for(i=1;i<=cnt;i++)
+    {
+
+        man[i].accept_details();
+
+    }
+    temp=0;
+    for(i=0;i<=cnt;i++)
+    {
+        if(man[temp].basic_salary<man[i].basic_salary)
+            temp=i;
+
+    }
+    cout<<"\n Manager with Highest Salary is : "<<man[temp].basic_salary<<endl;
+    cout<<"\n And ,Manager name is :"<<man[temp].ename;
+    return 0;
+
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+5.
+
+#include<iostream>
+using namespace std;
+class Item
+{
+public:
+    int item_no;
+    char name[20];
+    double price;
+
+};
+class DiscountedItem :public Item
+{
+public:
+    int discountper;
+    float discount_price;
+  void accept()
+  {
+      cout<<" Enter Item Name :   ";
+      cin>>name;
+      cout<<" Enter Item no. : ";
+      cin>>item_no;
+      cout<<" Enter Item price : ";
+      cin>>price;
+      cout<<" Enter Discount percent : ";
+      cin>>discountper;
+      cout<<"----------------------------"<<endl;
+      discount_price= price-((price*discountper)/100.0);
+
+  }
+  void display()
+  {
+       cout<<endl;
+      cout<<" Item Name :   "<<name<<endl;
+      cout<<" Item no. : "<<item_no<<endl;
+      cout<<" Item price : "<<price<<endl;
+      cout<<" Discount percent : "<<discountper<<endl;
+     cout<<" Discount Price : "<<discount_price<<endl;
+     cout<<"----------------------"<<endl;
+  }
+
+};
+int main()
+{
+    int i,ckt;
+    float pr=0,dis=0;
+    DiscountedItem d1[100];
+    cout<<"How many items you want to enter ?  : ";
+    cin>>ckt;
+    for(i=0;i<ckt;i++)
+    {
+        d1[i].accept();
+
+    }
+     for(i=0;i<ckt;i++)
+    {
+        d1[i].display();
+
+    }
+      for(i=0;i<ckt;i++)
+    {
+        pr=pr+d1[i].price;
+
+    }
+       for(i=0;i<ckt;i++)
+    {
+        dis=dis+d1[i].price-d1[i].discount_price;
+
+    }
+    cout<<" Total Price : "<<pr<<endl;
+    cout<<" Total Discount : "<<dis;
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+6.
+
+
+#include<iostream>
+using namespace std;
+class B;
+class A
+{
+
+    int num1;
+public:
+    A()
+    {
+        num1=10;
+    }
+    void display()
+    {
+        cout<<"num1 = "<<num1<<endl;;
+
+    }
+    friend void swap(A *num1,B *num2);
+};
+class B
+{
+
+    int num2;
+public:
+    B()
+    {
+        num2=20;
+    }
+    void display()
+    {
+        cout<<"num2 = "<<num2<<endl;;
+
+    }
+    friend void swap(A *num1,B *num2);
+};
+void swap(A *n1,B *n2)
+{
+    int n3;
+    n3=n1->num1;
+    n1->num1=n2->num2;
+    n2->num2=n3;
+
+}
+int main()
+{ A a;
+B b;
+swap(&a,&b);
+a.display();
+b.display();
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+7.
+
+
+#include<iostream>
+using namespace std;
+class emp
+{
+    public:
+    int emp_id;
+    char emp_name[20];
+public:
+    void get_details()
+    {
+        cout<<"Enter Emp_id ";
+        cin>>emp_id;
+        cout<<"Enter the Emp_Name ";
+        cin>>emp_name;
+    }
+  int get_id()
+  {
+      return emp_id;
+  }
+
+};
+class Fulltime:public emp
+{
+private:
+
+     int daily_rate;
+     int num_days;
+     int salary;
+ public:
+     void get_getfull()
+     {
+         cout<<"Enter daily rate ";
+         cin>>daily_rate;
+         cout<<"Enter no. of days ";
+         cin>>num_days;
+     }
+    void cal()
+    {
+        salary=num_days*daily_rate;
+
+    }
+    void Display_full()
+    {
+        cout<<"----------------------------"<<endl;
+         cout<<"Employee Number : "<<emp_id<<endl;
+         cout<<"Employee Name :"<<emp_name<<endl;
+         cout<<"Salary :"<<salary<<endl;
+         cout<<"status :"<<"Fulltime"<<endl;
+         cout<<"----------------------------"<<endl;
+         cout<<endl;
+         cout<<"----------------------------"<<endl;
+
+    }
+};
+class Parttime:public emp
+{
+    private:
+     int hours_rate;
+     int num_hours;
+     int salary;
+ public:
+     void get_detfull()
+     {
+         cout<<"Enter hours rate ";
+         cin>>hours_rate;
+         cout<<"Enter no. of hours ";
+         cin>>num_hours;
+     }
+    void cal()
+    {
+        salary=hours_rate*num_hours;
+
+    }
+    void Display_part()
+    {
+        cout<<"----------------------"<<endl;
+         cout<<"Employee Number : "<<emp_id<<endl;
+         cout<<"Employee Name :"<<emp_name<<endl;
+         cout<<"Salary :"<<salary<<endl;
+         cout<<"status :"<<"Parttime"<<endl;
+         cout<<"----------------------------"<<endl;
+         cout<<endl;
+         cout<<"----------------------------"<<endl;
+
+    }
+};
+
+int main()
+{
+    int x,y;
+    int var=0;
+    int var1=0;
+    Parttime p[5];
+    Fulltime f[5];
+
+
+    while(1)
+    {
+        cout<<" 1. Enter Records "<<endl;
+        cout<<" 2. Display records"<<endl;
+        cout<<"3. Search Records "<<endl;
+        cout<<"4. Quit "<<endl;
+        cin>>x;
+        switch(x)
+        {
+        case 1:
+            {
+             cout<<" 1. Full time "<<endl;
+             cout<<" 2. Part time "<<endl;
+             cin>>y;
+             switch(y)
+             {
+             case 1:
+                {
+                    f[var].get_details();
+                    f[var].get_getfull();
+                    f[var].cal();
+                    f[var].Display_full();
+                    var++;
+                    break;
+
+                }
+                 case 2:
+                {
+                    p[var1].get_details();
+                    p[var1].get_detfull();
+                    p[var1].cal();
+                    p[var1].Display_part();
+                    var1++;
+                    break;
+
+                }
+             }
+             break;
+            }
+                 case 2:
+                     {
+                         int z;
+                         cout<<" 1. Fulltime "<<endl;
+                         cout<<" 2. Parttime "<<endl;
+                         cin>>z;
+                         switch(z)
+                         {
+                         case 1:
+                            {
+                                  for(int i=0; i<var;i++)
+                         {
+                             f[i].Display_full();
+
+                         }
+                         break;
+                            }
+                         case 2:
+                            {
+                                for(int i=0;i<var1;i++)
+                         {
+                              p[i].Display_part();
+                         }
+                          break;
+                            }
+
+                         }
+
+
+                       break;
+                     }
+
+                 case 3:
+                    {
+                        int id;
+                        cout<<"Enter Employee id "<<endl;
+                        cin>>id;
+                        for(int i=0;i<5;i++)
+                        {
+                            if(f[i].get_id()==id)
+                            {
+                                f[i].Display_full();
+                            }
+                             if(p[i].get_id()==id)
+                            {
+                                p[i].Display_part();
+                            }
+                        }
+                        break;
+                    }
+                 case 4:
+                    {
+                        exit(0);
+                    }
+        }
+
+
+
+    }
+
+
+
+
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+8.
+
+#include<iostream>
+using namespace std;
+class Customer
+{
+
+public:
+    char cust_name[20];
+    long long phone_number;
+
+public:
+    void get_details()
+    {
+        cout<<"Enter Customer name ";
+        cin>>cust_name;
+        cout<<"Enter Phone number ";
+        cin>>phone_number;
+
+    }
+    void display(){
+        cout<<"-----------------------"<<endl;
+        cout<<" Cutomer name :"<<cust_name<<endl;
+        cout<<" phone number : "<<phone_number<<endl;
+
+    }
+
+
+};
+class  Depositor:public Customer
+{
+public:
+   int  accno;
+     int balance;
+public:
+    void accd()
+    {
+
+cout<<"Enter accout no. ";
+cin>>accno;
+cout<<"Enter balance no. ";
+cin>>balance;
+
+    }
+    void dis_d()
+    {
+        cout<<"Accout number :"<<accno<<endl;
+        cout<<"Balance : "<<balance<<endl;
+        cout<<"--------------------"<<endl;
+    }
+
+};
+class  Borrower:public Depositor
+{
+public:
+   int  loan_no;
+     int  loan_amt;
+public:
+    void accb()
+    {
+
+cout<<"Enter loan no. ";
+cin>>loan_no;
+cout<<"Enter loan amount ";
+cin>>loan_amt;
+
+    }
+    void dis_b()
+    {
+
+        cout<<"loan number :"<<loan_no<<endl;
+        cout<<"Loan Amount : "<< loan_amt<<endl;
+        cout<<"--------------------"<<endl;
+    }
+
+};
+int main()
+{
+    cout<<"how many customer you want add"<<endl;
+    int n;
+    cin>>n;
+    Borrower b[n];
+  for(int i=0;i<n;i++)
+  {
+         b[i].get_details();
+         b[i].accd();
+         b[i].accb();
+
+  }
+  cout<<"---------------"<<endl;
+   for(int i=0;i<n;i++)
+  {
+      cout<<"Details of Cutomer "<<endl;
+
+         b[i].display();
+         b[i].dis_d();
+         b[i].dis_b();
+
+  }
+
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+9
+
+
+#include<iostream>
+using namespace std;
+class Student
+{
+public:
+    char std_name[20];
+    int Roll_num;
+public:
+    void accept()
+    {
+        cout<<"Enter student name ";
+        cin>>std_name;
+        cout<<"Enter Roll number ";
+        cin>>Roll_num;
+
+    }
+};
+class StudentExam  : public Student
+{
+public:
+    int marks[6];
+public:
+    void acc()
+    {
+        for(int i=0;i<6;i++)
+        {
+            cout<<"Enter the Marks of "<<i+1<<" ";
+            cin>>marks[i];
+        }
+    }
+};
+class StudentResult : public StudentExam
+{
+    float per;
+public:
+
+    void cal()
+    {
+          int total=0;
+         for(int i=0;i<6;i++)
+         {
+             total=total+marks[i];
+         }
+         per=total/6;
+    }
+   void display()
+   { cout<<"Roll Number :"<<Roll_num<<endl;
+     cout<<"Student Name : "<<std_name<<endl;
+       for(int i=0;i<6;i++)
+       {
+
+           cout<<"Marks of Subject "<<i+1<<"  : "<<marks[i]<<endl;
+       }
+       cout<<"Total Percentage "<<per<<"% "<<endl;
+   }
+};
+int main()
+{
+    int n;
+    cout<<"How many student details you want enter ";
+    cin>>n;
+
+    StudentResult s[n];
+    for(int i=0;i<n;i++)
+    {
+
+       s[i].accept();
+       s[i].acc();
+       s[i].cal();
+       cout<<"-------------------------------"<<endl;
+       cout<<"******STUDENT MARKSLIST******"<<endl;
+       cout<<"----------------------------------"<<endl;
+       s[i].display();
+       cout<<"-------------------------------"<<endl;
+    }
+    return 0;
+}
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+10.
+
+#include<iostream>
+using namespace std;
+class worker
+{
+    public:
+    int code;
+    char name[20];
+    float salary;
+public:
+    void accept()
+    {
+        cout<<"Enter code :";
+        cin>>code;
+        cout<<"Enter name :";
+        cin>>name;
+        cout<<"Enter the salary :";
+        cin>>salary;
+
+    }
+
+};
+ class officer
+ {
+ public:
+
+    float DA ;
+    float HRA ;
+public:
+    void acc_off()
+    {
+        cout<<"Enter DA :";
+        cin>>DA;
+        cout<<"Enter HRA :";
+        cin>>HRA;
+    }
+ };
+class manger:public worker,public officer
+{
+    int gross_salary;
+    int TA;
+
+public:
+    void  cal_TA()
+    {
+        TA=salary*0.1;
+    }
+    void cal()
+    {
+       gross_salary=salary+DA+HRA+TA;
+    }
+    void display()
+    {
+         cout<<"--------------------------------------"<<endl;
+        cout<<"  *****Manager Information***** "<<endl;
+        cout<<"--------------------------------------"<<endl;
+        cout<<"code :"<<code<<endl;
+        cout<<"Name :"<<name<<endl;
+        cout<<"Salary :"<<salary<<endl;
+         cout<<"DA :"<<DA<<endl;
+          cout<<"HRA :"<<HRA<<endl;
+           cout<<"TA :"<<TA<<endl;
+           cout<<"Gross Salary  :"<<gross_salary<<endl;
+            cout<<"--------------------------------------"<<endl;
+    }
+};
+int main()
+{
+      cout<<"Enter Manager count : ";
+      int n;
+      cin>>n;
+       manger m[n];
+cout<<"--------------------------------------"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Enter Worker Information for "<<i+1<<endl;
+        cout<<"--------------------------------------"<<endl;
+           m[i].accept();
+           m[i].acc_off();
+           m[i].cal_TA();
+           m[i].cal();
+           m[i].display();
+    }
+
+    return 0;
+}
+
+
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
