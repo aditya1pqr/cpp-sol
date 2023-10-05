@@ -1,0 +1,363 @@
+1.
+
+#include<iostream>
+using namespace std;
+class Float
+{
+    float x;
+public:
+    void set(int x)
+    {
+        this->x=x;
+    }
+   Float operator+(Float k)
+    {
+        Float temp;
+        temp.x=x+k.x;
+        return temp;
+    }
+     Float operator-(Float k)
+    {
+        Float temp;
+        temp.x=x-k.x;
+        return temp;
+    }
+     Float operator*(Float k)
+    {
+        Float temp;
+        temp.x=x*k.x;
+        return temp;
+    }
+     Float operator/(Float k)
+    {
+        Float temp;
+        temp.x=x/k.x;
+        return temp;
+    }
+    void display()
+    {
+        cout<<"x : "<<x<<endl;
+    }
+};
+int main()
+{
+    Float a;
+    Float b;
+    Float c,d,e,f;
+
+    a.set(12);
+    b.set(12);
+    c=a+b;
+    c.display();
+    d=a-b;
+    d.display();
+   e=a*b;
+    e.display();
+   f=a/b;
+    f.display();
+
+    return 0;
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+2.
+
+
+
+
+#include<iostream>
+using namespace std;
+class Rectangle
+{
+float ar;
+public:
+   void  area(int l,int b)
+    {
+        ar=l*b;
+
+    }
+    void  area(int l,double b)
+    {
+        ar=l*b;
+
+    }
+    void  area(double l,double b)
+    {
+        ar=l*b;
+
+    }
+    void display()
+    {
+        cout<<"Area is :- "<<ar<<endl;
+    }
+};
+int main()
+{
+    Rectangle r,r2,r3;
+    r.area(3,4);
+     r.display();
+       r2.area(3,4.5);
+     r2.display();
+         r3.area(3.5,4.5);
+     r3.display();
+
+
+
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+3.
+
+
+#include<iostream>
+using namespace std;
+ class Animals
+ {
+ public:
+    void sound()
+    {
+        cout<<"I am invincible"<<endl;
+    }
+ };
+class Dogs:public Animals
+{
+public:
+    void sound()
+    {
+        cout<<"Dogs are barking"<<endl;
+    }
+};
+int main()
+{
+    Dogs d;
+    d.sound();
+    return 0;
+}
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+4.
+
+#include<iostream>
+using namespace std;
+class Addition
+{
+    float sum=0;
+public:
+    add(int x,int y)
+    {
+        sum=x+y;
+    }
+    add(int x,int y,int z)
+    {
+        sum=x+y+z;
+    }
+    void display()
+    {
+        cout<<"sum is :- "<<sum<<endl;
+    }
+};
+int main()
+{
+    Addition t;
+    t.add(2,5);
+    t.display();
+    t.add(10,20,30);
+    t.display();
+    return 0;
+}
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+5.
+
+
+
+#include<iostream>
+using namespace std;
+class person
+{ protected:
+    string name;
+    int age;
+public:
+    person()
+    {
+        cout<<" default person const called "<<endl;
+    }
+    person(int a,string s)
+    {
+        age=a;
+        name=s;
+
+    }
+};
+class Student:public person
+{int rank;
+public:
+
+    Student()
+    {
+        cout<<" default student const called "<<endl;
+    }
+    Student(int r,int a,string s):person(a, s)
+    {
+        rank=r;
+    }
+    void display()
+    {
+        cout<<"Name :- "<<name<<endl<<"Age :- "<<age<<endl<<"Rank :- "<<rank<<endl;
+    }
+
+};
+
+int main()
+{
+    Student s;
+    Student s1( 100,20,"Aditya Singh");
+    s1.display();
+    return 0;
+}
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+6.
+
+
+
+#include<iostream>
+using namespace std;
+class person
+{ protected:
+    string name;
+    int age;
+public:
+    person()
+    {
+        cout<<" default person const called "<<endl;
+    }
+    person(int a,string s)
+    {
+        age=a;
+        name=s;
+
+
+    }
+};
+class Student:public person
+
+{protected:
+
+    int rank;
+public:
+
+    Student()
+    {
+        cout<<" default student const called "<<endl;
+    }
+    Student(int r,int a,string s):person(a, s)
+    {
+        rank=r;
+    }
+
+
+};
+
+class Details :public Student
+{
+    int roll_num;
+public:
+    Details()
+    {
+         cout<<" default Details const called "<<endl;
+    }
+     Details(int x,int r,int a,string s):Student(r,a,s)
+     {
+         roll_num=x;
+     }
+
+      void display()
+    {
+        cout<<"Name :- "<<name<<endl<<"Age :- "<<age<<endl<<"Rank :- "<<rank<<endl<<"Roll no. "<<roll_num<<endl;
+    }
+};
+int main()
+{
+    Student s;
+     Details s2;
+    Details s1( 101,100,20,"Aditya Singh");
+    s1.display();
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+7.
+
+
+
+#include<iostream>
+using namespace std;
+class person
+{ protected:
+    string name;
+    int age;
+public:
+    person()
+    {
+        cout<<" default person const called "<<endl;
+    }
+    person(int a,string s)
+    {
+        age=a;
+        name=s;
+
+    }
+};
+class Student:public person
+{int rank;
+public:
+
+    Student()
+    {
+        cout<<" default student const called "<<endl;
+    }
+    Student(int r,int a,string s):person(a, s)
+    {
+        rank=r;
+    }
+    void display()
+    {
+        cout<<"Name :- "<<name<<endl<<"Age :- "<<age<<endl<<"Rank :- "<<rank<<endl;
+    }
+
+};
+
+int main()
+{
+    Student s;
+    Student s1( 100,20,"Aditya Singh");
+    s1.display();
+    return 0;
+}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
