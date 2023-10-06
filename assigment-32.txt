@@ -358,6 +358,190 @@ int main()
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+8.
 
+
+#include<iostream>
+using namespace std;
+class factorial
+{
+    int fact=1;
+    int n;
+public:
+    factorial(int a)
+    {
+        n=a;
+
+    }
+    factorial(factorial &l)
+    {
+        n=l.n;
+    }
+    void cal()
+    {
+        for(int i=1;i<=n;i++)
+        {
+
+            fact=fact*i;
+        }
+    }
+    void display()
+    {
+  cout<<"factorial is number "<<n<<" is "<<fact<<endl;
+    }
+
+};
+int main()
+{ factorial f(5);
+factorial f1(f);
+f.cal();
+f1.cal();
+f.display();
+f1.display();
+    return 0;
+}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+9.
+
+
+#include<iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+class Area
+{
+    int l;
+    int r;
+    int br;
+    int a,b,c;
+    int ar;
+public:
+    Area(int q,int w,int e)
+    {
+        a=q;
+        b=w;
+        c=e;
+        int s=(a+b+c)/2;
+        ar=sqrt(s*((s-a)*(s-b)*(s-c)));
+    }
+    Area(int radius)
+    {
+        r=radius;
+        ar=3.14*r*r;
+    }
+    Area(int m,int n)
+    {
+        l=m;
+        br=n;
+        ar=l*br;
+    }
+    int getarea()
+    {
+        return ar;
+    }
+};
+int main()
+{
+    while(1)
+    {
+        int x;
+        cout<<"1 . Area of Triangle "<<endl;
+        cout<<"2 . Area of rectangle "<<endl;
+        cout<<"3 . Area of circle "<<endl;
+        cout<<"4 . exit "<<endl;
+         cout<<"Enter your choice "<<endl;
+         cin>>x;
+        if(x==1)
+        {
+            Area a(4,3,5);
+            if(a.getarea()<=0)
+            {
+                cout<<"Invalid input "<<endl;
+            }
+            else
+            {
+                cout<<" Area of Triangle "<<a.getarea()<<endl;
+
+            }
+
+
+        }
+         if(x==2)
+        {
+            Area b(2,3);
+
+        cout<<" Area of Rectangle "<<b.getarea()<<endl;
+        }
+         if(x==3)
+        {
+            Area c(2);
+
+        cout<<" Area of Circle "<<c.getarea()<<endl;
+        }
+         if(x==4)
+        {
+
+           break;
+
+        }
+    }
+
+
+
+    return 0;
+}
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+10.
+
+
+#include<iostream>
+using namespace std;
+class Player
+{
+    int player_no;
+    int num_matches;
+    string name;
+    int *goal;
+public:
+    Player()
+    {
+      cout<<"Enter Player Number ";
+      cin>>player_no;
+      cout<<"Enter Name ";
+      cin>>name;
+      cout<<"Enter Number of matches ";
+      cin>>num_matches;
+      goal=new int[num_matches];
+      for(int i=0;i<num_matches;i++)
+      {
+          cout<<"Enter goal of match "<<i+1<<"  ";
+          cin>>goal[i];
+      }
+    }
+    void display()
+    {
+        cout<<"Player Number "<<player_no<<endl;
+        cout<<"Player Name "<<name<<endl;
+        cout<<"Matches :- "<<num_matches<<endl;
+        for(int i=0;i<num_matches;i++)
+        {
+            cout<<"Match "<<i+1<<" Goal is "<<goal[i]<<endl;
+        }
+    }
+};
+int main()
+{
+    Player p;
+    p.display();
+    return 0;
+}
 
 
